@@ -15,13 +15,22 @@ class ProfileScreen extends StatelessWidget {
         slivers: [
           // App Bar with profile image
           SliverAppBar(
-            expandedHeight: 200,
+            expandedHeight: 250,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 user.displayname,
                 style: const TextStyle(
-                  shadows: [Shadow(blurRadius: 4, color: Colors.black54)],
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 8,
+                      color: Colors.black,
+                      offset: Offset(0, 2),
+                    ),
+                    Shadow(blurRadius: 16, color: Colors.black),
+                  ],
                 ),
               ),
               background: Stack(
@@ -31,6 +40,7 @@ class ProfileScreen extends StatelessWidget {
                     Image.network(
                       user.image!.mediumUrl!,
                       fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
                       errorBuilder: (context, error, stackTrace) =>
                           _buildPlaceholderImage(),
                     )
@@ -42,8 +52,8 @@ class ProfileScreen extends StatelessWidget {
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          Colors.transparent,
-                          Colors.black.withValues(alpha: 0.7),
+                          Colors.black.withValues(alpha: 0.3),
+                          Colors.black.withValues(alpha: 0.8),
                         ],
                       ),
                     ),
